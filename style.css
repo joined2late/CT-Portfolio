@@ -39,7 +39,7 @@ body {
 
 main {
     /* TODO: update this later if necessary once page is complete*/
-    min-height: calc(90vh - 50px);
+    min-height: calc(100vh - 50px);
 }
 
 .bio {
@@ -49,6 +49,7 @@ main {
     align-items: center;
     width: 100%;
     margin: 0 auto;
+    background-color: #353839;
 }
 
 .bio-content {
@@ -67,4 +68,24 @@ main {
     height: 300px;
     padding: 7px;
     margin-left: 100px;
+}
+
+.flex-container {
+    display: flex;
+    gap: 20px;
+    padding: 40px 0;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    width: 250px;
+    height: 400px;
+    background-color: #616161;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    min-width: 200px;
 }
