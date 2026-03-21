@@ -23,7 +23,7 @@ body {
 
 .links a:hover {
     transition: 1s;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .header-footer {
@@ -80,7 +80,7 @@ main {
 }
 
 .box {
-    width: 250px;
+    width: 300px;
     height: 400px;
     background-color: #616161;
     display: flex;
@@ -92,8 +92,8 @@ main {
     transition: transform 0.4s ease;
     transform-origin: top left;
     border-radius: 8px;
-    min-width: 200px;
-    flex: 0 1 250px;
+    min-width: 250px;
+    flex: 0 1 300px;
 }
 
 .box:hover {
