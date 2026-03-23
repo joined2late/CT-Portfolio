@@ -2,8 +2,7 @@ body {
     margin: 0;
     font-family: 'Ubuntu';
     font-weight: 400;
-    background-color: #353839;
-    background-image: url(background.jpg)
+    background-color: #111;
 }
 
 .page-layout {
@@ -28,7 +27,7 @@ body {
 
 .header-footer {
     height: 25px;
-    background-color: #000000;
+    background-color: #111;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,11 +48,11 @@ main {
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    background-color: #353839;
+    background-color: #111;
 }
 
 .bio-content {
-    text-align: center;
+    text-align: right;
     margin: 0 auto;
     color: #FFFFFF;
     font-size: 20;
@@ -61,6 +60,7 @@ main {
 
 .bio-content p {
     font-size: 14px;
+    text-align: right;
 }
 
 .placeholder {
@@ -83,7 +83,7 @@ main {
 .box {
     width: 300px;
     height: 400px;
-    background-color: #616161;
+    background-color: #333;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,7 +99,7 @@ main {
 
 .box:hover {
     transform: scale(1.05);
-    background-color: #777777;
+    background-color: #555;
     z-index: 10;
 }
 
