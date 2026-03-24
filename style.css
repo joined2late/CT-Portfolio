@@ -24,10 +24,12 @@ body {
 .links {
     display: flex;
     gap: 20px;
+    color: #FFFFFF;
 }
 
 .links a {
     text-decoration: none;
+    color: #ffffff;
 }
 
 .links a:hover {
@@ -46,9 +48,13 @@ body {
     color: #ffffff;
 }
 
+.header-footer footer-2 {
+    align-items: right;
+}
+
 main {
     /* TODO: update this later if necessary once page is complete*/
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 73px);
 }
 
 .bio {
@@ -128,6 +134,7 @@ main {
     border-radius: 8px;
     min-width: 250px;
     flex: 0 1 300px;
+    color: #ffffff;
 }
 
 .box:hover {
@@ -176,4 +183,74 @@ main {
         /* Makes the image responsive to the screen width */
         max-width: 300px;
     }
+
+    .music-container {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
+
+.music-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    color: white;
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+}
+
+.dropbtn:hover {
+    font-size: 15px;
+    transition: 1s;
+}
+
+.dropdown-content {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    right: 0;
+    /* Aligns it to the right so it doesn't go off-screen */
+    background-color: #222;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    /* High z-index to stay above the bio circle */
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    margin-top: 10px;
+    top: 100%;
+    margin-top: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    display: block;
 }

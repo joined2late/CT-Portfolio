@@ -38,7 +38,7 @@ body {
     text-align: center;
     color: #ffffff;
     font-family: monospace;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #444;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -60,7 +60,7 @@ body {
     font-size: 25px;
     color: #ffffff;
     font-family: monospace;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #444;
     transition: transform 0.3s ease-in-out;
     text-decoration: none;
     display: inline-block;
