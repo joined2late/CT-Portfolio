@@ -1,256 +1,40 @@
-body {
-    margin: 0;
-    font-family: 'Ubuntu';
-    font-weight: 400;
-    background-color: #111;
-    background-image:
-        radial-gradient(circle at 10% 10%, rgba(60, 60, 60, 0.15) 0%, rgba(17, 17, 17, 0) 50%),
-
-        radial-gradient(circle at 80% 60%, rgba(80, 80, 80, 0.1) 0%, rgba(17, 17, 17, 0) 40%),
-
-        radial-gradient(circle at 50% 90%, rgba(70, 70, 70, 0.08) 0%, rgba(17, 17, 17, 0) 30%);
-
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.page-layout {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.links {
-    display: flex;
-    gap: 20px;
-    color: #FFFFFF;
-}
-
-.links a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.links a:hover {
-    transition: 1s;
-    font-size: 15px;
-}
-
-.header-footer {
-    height: 25px;
-    background-color: #111;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    padding: 7px;
-    color: #ffffff;
-}
-
-.header-footer footer-2 {
-    align-items: right;
-}
-
-main {
-    /* TODO: update this later if necessary once page is complete*/
-    min-height: calc(100vh - 73px);
-}
-
-.bio {
-    height: 400px;
-    display: flex;
-    font-size: 40px;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #111;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.bio::after {
-    content: "";
-    position: absolute;
-    bottom: -100px;
-    right: -100px;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(100, 100, 100, 0.6) 0%, rgba(50, 50, 50, 0.8) 70%, rgba(30, 30, 30, 1) 100%);
-    z-index: 2;
-    box-shadow: 0 0 50px 20px rgba(50, 50, 50, 0.5);
-    display: block;
-}
-
-.placeholder,
-.bio-content {
-    position: relative;
-    z-index: 3;
-}
-
-.bio-content {
-    text-align: right;
-    margin: 0 auto;
-    color: #FFFFFF;
-    font-size: 20;
-}
-
-.bio-content p {
-    font-size: 14px;
-    text-align: right;
-}
-
-.placeholder {
-    width: 400px;
-    height: auto;
-    padding: 7px;
-    margin-left: 100px;
-    border-radius: 8px;
-}
-
-.flex-container {
-    display: flex;
-    gap: 20px;
-    padding: 40px 0;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-.box {
-    width: 300px;
-    height: 400px;
-    background-color: #333;
+/* Use Flexbox to center everything in the 'main' area */
+.about-main {
     display: flex;
     align-items: center;
+    /* Vertical centering */
     justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    /*Overflow keeps images from going over the corners of the flexbox*/
-    transition: transform 0.4s ease;
-    transform-origin: top left;
-    border-radius: 8px;
-    min-width: 250px;
-    flex: 0 1 300px;
-    color: #ffffff;
-}
-
-.box:hover {
-    transform: scale(1.05);
-    background-color: #555;
-    z-index: 10;
-}
-
-.box-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.box-text h3 {
-    margin: 10px 0 5px 0;
-}
-
-.box-text p {
-    font-size: 13px;
-    line-height: 1.4;
-}
-
-@media (max-width: 800px) {
-    .bio {
-        flex-direction: column;
-        /* Stacks them vertically */
-        height: auto;
-        /* Allows the bio to grow taller to fit the text */
-        padding: 40px 20px;
-        text-align: center;
-        /* Centers everything for a cleaner mobile look */
-    }
-
-    .bio-content,
-    .bio-content p {
-        text-align: center;
-        /* Overrides your 'right' alignment on mobile */
-        margin: 20px 0;
-    }
-
-    .placeholder {
-        margin-left: 0;
-        /* Removes that 100px gap so the image stays centered */
-        width: 80%;
-        /* Makes the image responsive to the screen width */
-        max-width: 300px;
-    }
-
-    .music-container {
-        width: 95%;
-        margin: 20px auto;
-    }
-}
-
-.music-container {
-    width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
+    /* Horizontal centering */
+    min-height: calc(100vh - 73px);
+    /* Adjusts for header/footer height */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-container {
     text-align: center;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    background: none;
-    border: none;
+    max-width: 800px;
+    /* Keeps text from stretching too wide on big monitors */
     color: white;
-    font-family: 'Ubuntu';
-    font-size: 14px;
-    cursor: pointer;
-    padding: 0;
-    text-decoration: none;
 }
 
-.dropbtn:hover {
-    font-size: 15px;
-    transition: 1s;
+.about-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
-.dropdown-content {
-    display: none;
-    /* Hidden by default */
-    position: absolute;
-    right: 0;
-    /* Aligns it to the right so it doesn't go off-screen */
-    background-color: #222;
-    min-width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    /* High z-index to stay above the bio circle */
-    padding: 15px;
-    border-radius: 12px;
-    border: 1px solid #444;
-    margin-top: 10px;
-    top: 100%;
-    margin-top: 5px;
+.about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+    /* Slightly dimmer white for better readability */
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    display: block;
+.placeholder-about {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* Makes the image a circle */
+    margin-bottom: 20px;
+    border: 2px solid #444;
 }
