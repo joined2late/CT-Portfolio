@@ -3,6 +3,16 @@ body {
     font-family: 'Ubuntu';
     font-weight: 400;
     background-color: #111;
+    background-image:
+        radial-gradient(circle at 10% 10%, rgba(60, 60, 60, 0.15) 0%, rgba(17, 17, 17, 0) 50%),
+
+        radial-gradient(circle at 80% 60%, rgba(80, 80, 80, 0.1) 0%, rgba(17, 17, 17, 0) 40%),
+
+        radial-gradient(circle at 50% 90%, rgba(70, 70, 70, 0.08) 0%, rgba(17, 17, 17, 0) 30%);
+
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .page-layout {
@@ -48,42 +58,38 @@ main {
     min-height: calc(100vh - 73px);
 }
 
-.bio {
-    height: 400px;
+.project {
+    height: 300px;
     display: flex;
     font-size: 40px;
     align-items: center;
     width: 93%;
     margin: 0 auto;
     background-color: #7d7d7d;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
     border-radius: 8px;
 }
 
 .placeholder,
-.bio-content {
+.project-content {
     position: relative;
     z-index: 3;
 }
 
-.bio-content {
+.project-content {
     text-align: right;
     margin: 0 auto;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 20;
 }
 
-.bio-content p {
+.project-content p {
     font-size: 14px;
     text-align: center;
-    margin-bottom: 50px;
 }
 
-.bio-content h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
+.project-content h4 {
+    margin: 10px 0 5px 0;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -104,18 +110,67 @@ main {
     justify-content: space-evenly;
 }
 
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 0.7s ease;
+    transform-origin: top left;
+    border-radius: 8px;
+    min-width: 300px;
+    flex: 0 1 300px;
+    color: #ffffff;
+}
+
+.box a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
 @media (max-width: 800px) {
     .bio {
         flex-direction: column;
+        /* Stacks them vertically */
         height: auto;
+        /* Allows the bio to grow taller to fit the text */
         padding: 40px 20px;
         text-align: center;
+        /* Centers everything for a cleaner mobile look */
     }
 
     .bio-content,
     .bio-content p {
         text-align: center;
+        /* Overrides your 'right' alignment on mobile */
         margin: 20px 0;
+    }
+
+    .placeholder {
+        margin-left: 0;
+        /* Removes that 100px gap so the image stays centered */
+        width: 80%;
+        /* Makes the image responsive to the screen width */
+        max-width: 300px;
     }
 
     .music-container {
@@ -158,12 +213,15 @@ main {
 
 .dropdown-content {
     display: none;
+    /* Hidden by default */
     position: absolute;
     right: 0;
+    /* Aligns it to the right so it doesn't go off-screen */
     background-color: #222;
     min-width: 300px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     z-index: 100;
+    /* High z-index to stay above the bio circle */
     padding: 15px;
     border-radius: 12px;
     border: 1px solid #444;

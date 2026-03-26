@@ -65,25 +65,8 @@ main {
     align-items: center;
     width: 93%;
     margin: 0 auto;
-    background-color: #a7a7a7;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    background-color: #7d7d7d;
     border-radius: 8px;
-}
-
-.bio::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    right: -50px;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(100, 100, 100, 0.6) 0%, rgba(50, 50, 50, 0.8) 70%, rgba(30, 30, 30, 1) 100%);
-    z-index: 2;
-    box-shadow: 0 0 50px 20px rgba(50, 50, 50, 0.5);
-    display: block;
 }
 
 .placeholder,
@@ -95,18 +78,17 @@ main {
 .bio-content {
     text-align: right;
     margin: 0 auto;
-    color: #FFFFFF;
-    font-size: 20;
+    color: #ffffff;
 }
 
 .bio-content p {
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
 }
 
 .bio-content h4 {
     margin: 10px 0 5px 0;
-    font-size: 20px;
+    font-size: 32px;
     text-align: center;
 }
 
@@ -136,7 +118,6 @@ main {
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-    /*Overflow keeps images from going over the corners of the flexbox*/
     transition: all 0.7s ease;
     transform-origin: top left;
     border-radius: 8px;
@@ -158,23 +139,24 @@ main {
 
 .box:hover {
     transform: scale(1.05);
-    background-color: #a7a7a7;
+    background-color: #7d7d7d;
     z-index: 10;
 }
 
 .box-image {
     width: 100%;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
 }
 
 .box-text h3 {
-    margin: 10px 0 5px 0;
+    margin-left: 40px;
 }
 
 .box-text p {
     font-size: 13px;
     line-height: 1.4;
+    margin-left: 40px;
 }
 
 @media (max-width: 800px) {
