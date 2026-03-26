@@ -1,18 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Ubuntu';
-    font-weight: 400;
+    font-family: 'Ubuntu', sans-serif;
     background-color: #111;
-    background-image:
-        radial-gradient(circle at 10% 10%, rgba(60, 60, 60, 0.15) 0%, rgba(17, 17, 17, 0) 50%),
-
-        radial-gradient(circle at 80% 60%, rgba(80, 80, 80, 0.1) 0%, rgba(17, 17, 17, 0) 40%),
-
-        radial-gradient(circle at 50% 90%, rgba(70, 70, 70, 0.08) 0%, rgba(17, 17, 17, 0) 30%);
-
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+    color: #fff;
 }
 
 .page-layout {
@@ -21,237 +11,141 @@ body {
     flex-direction: column;
 }
 
-.links {
-    display: flex;
-    gap: 20px;
-    color: #FFFFFF;
-}
-
-.links a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.links a:hover {
-    transition: 1s;
-    font-size: 15px;
-}
-
 .header-footer {
-    height: 25px;
+    height: 35px;
     background-color: #111;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 5px 20px;
     font-size: 14px;
-    padding: 7px;
-    color: #ffffff;
 }
 
-.header-footer footer-2 {
-    align-items: right;
+.links {
+    display: flex;
+    gap: 20px;
 }
 
-main {
-    /* TODO: update this later if necessary once page is complete*/
-    min-height: calc(100vh - 50px);
-    min-height: calc(100vh - 73px);
+.links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    font-size: 15px;
 }
 
 .bio {
-    height: 300px;
     display: flex;
-    font-size: 40px;
     align-items: center;
-    width: 93%;
-    margin: 0 auto;
+    width: 95%;
+    height: 87vh;
+    margin: 30px auto;
     background-color: #7d7d7d;
     border-radius: 8px;
-}
-
-.placeholder,
-.bio-content {
-    position: relative;
-    z-index: 3;
-}
-
-.bio-content {
-    text-align: right;
-    margin: 0 auto;
-    color: #ffffff;
-}
-
-.bio-content p {
-    font-size: 18px;
-    text-align: center;
-}
-
-.bio-content h4 {
-    margin: 10px 0 5px 0;
-    font-size: 32px;
-    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .placeholder {
     width: 400px;
     height: auto;
-    padding: 7px;
-    margin-left: 100px;
     border-radius: 8px;
+    margin-left: 30px;
+}
+
+.bio-content {
+    flex: 1;
+    text-align: center;
+    padding-right: 40px;
+}
+
+.bio-content h4 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.bio-content p {
+    font-size: 20px;
+    margin-top: 5px;
+    line-height: 1.4;
 }
 
 .flex-container {
     display: flex;
-    gap: 20px;
-    padding: 40px 0;
-    width: 100%;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    gap: 20px;
+    width: 95%;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .box {
-    width: 300px;
-    height: 400px;
+    flex: 0 1 280px;
+    height: 380px;
     background-color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    transition: all 0.7s ease;
-    transform-origin: top left;
     border-radius: 8px;
-    min-width: 250px;
-    flex: 0 1 300px;
-    color: #ffffff;
+    transition: 0.7s ease;
+    max-width: 95%;
+}
+
+.box:hover {
+    transform: scale(1.03);
+    background-color: #7d7d7d;
+    transform-origin: top left;
 }
 
 .box a {
     text-decoration: none;
     color: inherit;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.box:hover {
-    transform: scale(1.05);
-    background-color: #7d7d7d;
-    z-index: 10;
+    height: 100%;
 }
 
 .box-image {
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
 }
 
+.box-text {
+    padding: 15px 25px;
+    text-align: left;
+}
+
 .box-text h3 {
-    margin-left: 40px;
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    border-left: 3px solid #7d7d7d;
+    padding-left: 10px;
 }
 
 .box-text p {
+    margin: 0;
     font-size: 13px;
     line-height: 1.4;
-    margin-left: 40px;
+    padding-left: 13px;
 }
 
 @media (max-width: 800px) {
     .bio {
         flex-direction: column;
-        /* Stacks them vertically */
         height: auto;
-        /* Allows the bio to grow taller to fit the text */
         padding: 40px 20px;
         text-align: center;
-        /* Centers everything for a cleaner mobile look */
     }
 
-    .bio-content,
-    .bio-content p {
+    .bio-content {
         text-align: center;
-        /* Overrides your 'right' alignment on mobile */
-        margin: 20px 0;
+        padding: 0;
+        margin-top: 20px;
     }
 
     .placeholder {
-        margin-left: 0;
-        /* Removes that 100px gap so the image stays centered */
-        width: 80%;
-        /* Makes the image responsive to the screen width */
-        max-width: 300px;
+        margin: 0;
+        max-width: 200px;
     }
-
-    .music-container {
-        width: 95%;
-        margin: 20px auto;
-    }
-}
-
-.music-container {
-    width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    background: none;
-    border: none;
-    color: white;
-    font-family: 'Ubuntu';
-    font-size: 14px;
-    cursor: pointer;
-    padding: 0;
-    text-decoration: none;
-}
-
-.dropbtn:hover {
-    font-size: 15px;
-    transition: 1s;
-}
-
-.dropdown-content {
-    display: none;
-    /* Hidden by default */
-    position: absolute;
-    right: 0;
-    /* Aligns it to the right so it doesn't go off-screen */
-    background-color: #222;
-    min-width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    /* High z-index to stay above the bio circle */
-    padding: 15px;
-    border-radius: 12px;
-    border: 1px solid #444;
-    margin-top: 10px;
-    top: 100%;
-    margin-top: 5px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    display: block;
 }
