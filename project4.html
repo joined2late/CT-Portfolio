@@ -8,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -76,5 +76,33 @@
         </footer>
     </div>
 </body>
+<!-- The Fullscreen Lightbox Overlay Container -->
+<div id="image-lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-target-img" alt="Fullscreen View">
+</div>
+
+<!-- The Lightbox Logic Controller Script -->
+<script>
+    function openLightbox(element) {
+        var lightbox = document.getElementById("image-lightbox");
+        var lightboxImg = document.getElementById("lightbox-target-img");
+        lightbox.style.display = "flex";
+        lightboxImg.src = element.src;
+    }
+
+    function closeLightbox() {
+        document.getElementById("image-lightbox").style.display = "none";
+    }
+
+    // Automatically attaches click triggers to all project images when the page loads
+    document.addEventListener("DOMContentLoaded", function () {
+        var images = document.querySelectorAll('.box-image, .placeholder');
+        images.forEach(function (img) {
+            img.style.cursor = 'pointer';
+            img.setAttribute('onclick', 'openLightbox(this)');
+        });
+    });
+</script>
 
 </html>

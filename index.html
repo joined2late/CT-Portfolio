@@ -7,19 +7,24 @@
     <title>Andrew Zhou | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="page-layout">
-        <header class="header-footer">
-            <div>Andrew</div>
-            <nav class="links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="contacts.html">Contact</a>
-            </nav>
+        <header>
+            <div class="header-container">
+                <div>Andrew</div>
+                <nav class="links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                    <a href="contacts.html">Contact</a>
+                </nav>
+            </div>
         </header>
 
         <main>
@@ -27,10 +32,9 @@
                 <section class="bio">
                     <img class="placeholder" src="pfplaceholder.png" alt="Andrew Zhou">
                     <div class="bio-content">
-                        <h4>Andrew [REDACTED]'s Portfolio</h4>
-                        <p>Hi there! I'm Andrew, a Year 9 student focused on structural engineering and advanced
-                            mathematics.</p>
-
+                        <h4>Andrew Zhou's Portfolio</h4>
+                        <p>Hi there! I'm Andrew, a Year 9 student focused on structural engineering, front-end
+                            development, and advanced mathematics.</p>
                     </div>
                 </section>
             </div>
@@ -40,8 +44,8 @@
                     <a href="project1.html">
                         <img src="project-1-1.png" alt="Portfolio" class="box-image">
                         <div class="box-text">
-                            <h3>Portfolio</h3>
-                            <p>The Portfolio Project is my personal website design.</p>
+                            <h3>Portfolio Project</h3>
+                            <p>The Portfolio Project is my personal website design project built from the ground up.</p>
                         </div>
                     </a>
                 </div>
@@ -78,13 +82,36 @@
             </div>
         </main>
 
-        <footer class="header-footer">
+        <footer>
             <p>© 2026 Andrew Zhou</p>
-            <p>Note to teacher: Everytime you see an image apart from the ones in
-                Project 1 it is a
+            <p class="footer-2">Note to teacher: Everytime you see an image apart from the ones in Project 1 it is a
                 placeholder.</p>
         </footer>
     </div>
 </body>
+
+<div id="image-lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-target-img" alt="Fullscreen View">
+</div>
+
+<script>
+    function openLightbox(element) {
+        var lightbox = document.getElementById("image-lightbox");
+        var lightboxImg = document.getElementById("lightbox-target-img");
+        lightbox.style.display = "flex";
+        lightboxImg.src = element.src;
+    }
+    function closeLightbox() {
+        document.getElementById("image-lightbox").style.display = "none";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        var images = document.querySelectorAll('.box-image, .placeholder');
+        images.forEach(function (img) {
+            img.style.cursor = 'pointer';
+            img.setAttribute('onclick', 'openLightbox(this)');
+        });
+    });
+</script>
 
 </html>
