@@ -7,9 +7,7 @@
     <title>Andrew Zhou | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,9 +15,9 @@
     <div class="page-layout">
         <header>
             <div class="header-container">
-                <div>Andrew</div>
+                <a class="brand" href="index.html">Andrew Zhou</a>
                 <nav class="links">
-                    <a href="index.html">Home</a>
+                    <a href="index.html" class="active">Home</a>
                     <a href="about.html">About</a>
                     <a href="resume.html">Resume</a>
                     <a href="contacts.html">Contact</a>
@@ -28,90 +26,66 @@
         </header>
 
         <main>
-            <div class="fullscreen-wrap">
-                <section class="bio">
-                    <img class="placeholder" src="pfplaceholder.png" alt="Andrew Zhou">
-                    <div class="bio-content">
-                        <h4>Andrew Zhou's Portfolio</h4>
-                        <p>Hi there! I'm Andrew, a Year 9 student focused on structural engineering, front-end
-                            development, and advanced mathematics.</p>
-                    </div>
-                </section>
-            </div>
+            <section class="bio">
+                <img class="avatar zoomable" src="pfplaceholder.png" alt="Andrew Zhou">
+                <div class="bio-content">
+                    <p class="eyebrow">Portfolio — 2026</p>
+                    <h1>Andrew Zhou</h1>
+                    <p class="lead">Year 9 student in Sydney focused on structural engineering, front-end development
+                        and advanced mathematics.</p>
+                </div>
+            </section>
 
-            <div class="flex-container">
-                <div class="box">
-                    <a href="project1.html">
-                        <img src="project-1-1.png" alt="Portfolio" class="box-image">
-                        <div class="box-text">
-                            <h3>Portfolio Project</h3>
-                            <p>The Portfolio Project is my personal website design project built from the ground up.</p>
+            <section>
+                <h2>Selected Projects</h2>
+                <div class="project-grid">
+                    <a class="card" href="project1.html">
+                        <div class="card-media"><img src="project-1-1.png" alt="Portfolio website CSS"></div>
+                        <div class="card-body">
+                            <p class="eyebrow">01 — HTML / CSS</p>
+                            <h3>Portfolio Website <span class="arrow">→</span></h3>
+                            <p>My personal portfolio website, designed and built from the ground up.</p>
+                        </div>
+                    </a>
+
+                    <a class="card" href="project2.html">
+                        <div class="card-media blank">02</div>
+                        <div class="card-body">
+                            <p class="eyebrow">02 — Spreadsheets</p>
+                            <h3>Data Analysis <span class="arrow">→</span></h3>
+                            <p>Cleaning and structuring a data set to find trends, patterns and insights.</p>
+                        </div>
+                    </a>
+
+                    <a class="card" href="project3.html">
+                        <div class="card-media"><img src="project-3-display.jpg" alt="Arduino LCD showing the time"></div>
+                        <div class="card-body">
+                            <p class="eyebrow">03 — Arduino Uno / Python / C++</p>
+                            <h3>Arduino Information Display <span class="arrow">→</span></h3>
+                            <p>An LCD clock and weather display driven by an Arduino Uno and a Python script.</p>
+                        </div>
+                    </a>
+
+                    <a class="card muted" href="project4.html">
+                        <div class="card-media blank">04</div>
+                        <div class="card-body">
+                            <p class="eyebrow">04 — In progress</p>
+                            <h3>Coming Soon <span class="arrow">→</span></h3>
+                            <p>The next project will be added here.</p>
                         </div>
                     </a>
                 </div>
-
-                <div class="box">
-                    <a href="project2.html">
-                        <img src="projectimageplaceholder.png" alt="Project 2" class="box-image">
-                        <div class="box-text">
-                            <h3>Project 2</h3>
-                            <p>Details about your second major project go here.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="box">
-                    <a href="project3.html">
-                        <img src="projectimageplaceholder.png" alt="Project 3" class="box-image">
-                        <div class="box-text">
-                            <h3>Project 3</h3>
-                            <p>Details about your third major project go here.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="box">
-                    <a href="project4.html">
-                        <img src="projectimageplaceholder.png" alt="Project 4" class="box-image">
-                        <div class="box-text">
-                            <h3>Project 4</h3>
-                            <p>Details about your fourth major project go here.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            </section>
         </main>
 
         <footer>
-            <p>© 2026 Andrew Zhou</p>
-            <p class="footer-2">Note to teacher: Everytime you see an image apart from the ones in Project 1 it is a
-                placeholder.</p>
+            <div class="footer-container">
+                <p>© 2026 Andrew Zhou</p>
+                <p>Sydney, Australia</p>
+            </div>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
-
-<div id="image-lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-target-img" alt="Fullscreen View">
-</div>
-
-<script>
-    function openLightbox(element) {
-        var lightbox = document.getElementById("image-lightbox");
-        var lightboxImg = document.getElementById("lightbox-target-img");
-        lightbox.style.display = "flex";
-        lightboxImg.src = element.src;
-    }
-    function closeLightbox() {
-        document.getElementById("image-lightbox").style.display = "none";
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-        var images = document.querySelectorAll('.box-image, .placeholder');
-        images.forEach(function (img) {
-            img.style.cursor = 'pointer';
-            img.setAttribute('onclick', 'openLightbox(this)');
-        });
-    });
-</script>
 
 </html>

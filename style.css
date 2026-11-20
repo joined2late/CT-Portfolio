@@ -1,435 +1,592 @@
 /* ==========================================================================
-   1. BASE STYLING & CORE COLOR ENVIRONMENT
+   Andrew Zhou — Portfolio
+   Modernist monochrome: black, white and a scale of greys.
    ========================================================================== */
-* {
+
+:root {
+    --black: #0a0a0a;
+    --grey-900: #171717;
+    --grey-800: #262626;
+    --grey-700: #404040;
+    --grey-600: #525252;
+    --grey-500: #737373;
+    --grey-400: #a3a3a3;
+    --grey-300: #d4d4d4;
+    --grey-200: #e5e5e5;
+    --grey-100: #f5f5f5;
+    --white: #ffffff;
+
+    --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+    --page-width: 1100px;
+    --gutter: 24px;
+    --header-height: 64px;
+}
+
+/* ---------- 1. Base ---------- */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #eef5f9;
-    /* Matte Ice-Blue Background Canvas */
-    color: #2b3a42;
-    /* Deep Blue-Slate Text */
+    font-family: var(--font-sans);
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
 }
 
-/* ==========================================================================
-   2. FIXED FLOATING NAVIGATION BAR
-   ========================================================================== */
-header {
-    background-color: rgba(255, 255, 255, 0.85);
-    /* Frosted Glass Dock */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
+img {
+    display: block;
+    max-width: 100%;
 }
 
-/* The structural container inside the header that keeps content perfectly centered */
-.header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 100%;
+a {
+    color: inherit;
 }
 
-.header-container div:first-child {
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    color: #2b3a42;
+::selection {
+    background: var(--black);
+    color: var(--white);
 }
 
-.links {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-.links a {
-    text-decoration: none;
-    color: #2b3a42;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: opacity 0.2s ease;
-}
-
-.links a:hover {
-    opacity: 0.6;
-}
-
-/* ==========================================================================
-   3. SINGLE-COLUMN CONTAINER SYSTEM
-   ========================================================================== */
 .page-layout {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* ---------- 2. Header ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--grey-200);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--page-width);
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.links {
+    display: flex;
+    gap: 32px;
+}
+
+.links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--grey-500);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background: var(--black);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.links a:hover,
+.links a.active {
+    color: var(--black);
+}
+
+.links a:hover::after,
+.links a.active::after {
+    transform: scaleX(1);
+}
+
+/* ---------- 3. Main container ---------- */
 main {
     flex-grow: 1;
     width: 100%;
-    max-width: 1100px;
+    max-width: var(--page-width);
     margin: 0 auto;
-    padding: 120px 24px 60px 24px;
-    /* Clears fixed navigation bar space */
+    padding: 72px var(--gutter) 96px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 72px;
 }
 
-/* ==========================================================================
-   4. LAYOUT TILES (Soft Matte Pastel Yellow Blocks)
-   ========================================================================== */
-.bio,
-.project,
-.resume-section {
-    background-color: #fdfae6;
-    /* Warm Light-Pastel Yellow Accent Block */
-    border: 1px solid rgba(218, 210, 161, 0.4);
-    border-radius: 16px;
-    padding: 35px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 35px;
-    align-items: center;
-    box-shadow: 0 10px 30px rgba(43, 58, 66, 0.03);
-    width: 100%;
-}
-
-/* Single column behavior fallback for explicit wrapper content blocks */
-.project {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.fullscreen-wrap,
-.resume-section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.resume-section {
-    align-items: flex-start;
-    gap: 30px;
-}
-
-.bio .placeholder {
-    width: 110px;
-    height: 110px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 2px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.bio-content,
-.project-content,
-.resume-content {
-    text-align: left;
-    width: 100%;
-}
-
-.bio-content h1,
-.bio-content h4,
-.project-content h4,
-.resume-content h1 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #2b3a42;
-    margin-bottom: 12px;
-}
-
-.bio-content p,
-.project-content p {
-    font-size: 15px;
-    color: #4f646f;
-    line-height: 1.7;
-    white-space: pre-line;
-}
-
-/* ==========================================================================
-   5. INTERACTIVE PICTURE GRID MODULES
-   ========================================================================== */
-.flex-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    width: 100%;
-}
-
-.box {
-    background-color: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 10px 30px rgba(43, 58, 66, 0.04);
-    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.box a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.box-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 11;
-    object-fit: cover;
-    display: block;
-}
-
-/* Text elements inside your home page project grid items */
-.box-text {
-    text-align: left;
-}
-
-.box h3 {
-    font-size: 16px;
-    font-weight: 700;
-    padding: 20px 20px 6px 20px;
-    color: #2b3a42;
-}
-
-.box p {
-    font-size: 13px;
-    color: #6c828d;
-    padding: 0 20px 20px 20px;
-    line-height: 1.5;
-}
-
-.box:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(43, 58, 66, 0.08);
-}
-
-/* ==========================================================================
-   6. RESUME CARD INTERNAL RULES
-   ========================================================================== */
-.resume-block {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 24px;
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 4px 15px rgba(43, 58, 66, 0.02);
-}
-
-.resume-block h2 {
-    font-size: 19px;
-    color: #2b3a42;
-    margin-bottom: 14px;
-    border-bottom: 2px solid #f6efa6;
-    padding-bottom: 6px;
+/* ---------- 4. Typography helpers ---------- */
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.resume-item {
+    color: var(--grey-500);
     margin-bottom: 16px;
 }
 
-.resume-item:last-child {
-    margin-bottom: 0;
-}
-
-.resume-item h3 {
-    font-size: 16px;
-    color: #2b3a42;
-}
-
-.resume-item .meta {
-    font-size: 13px;
-    color: #6c828d;
-    margin-bottom: 6px;
+h1 {
+    font-size: clamp(36px, 6vw, 64px);
     font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
 }
 
-.resume-item p {
-    font-size: 14px;
-    color: #4f646f;
-    line-height: 1.6;
+h2 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--black);
 }
 
-.resume-grid-img {
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.lead {
+    font-size: 18px;
+    color: var(--grey-700);
+    max-width: 640px;
+}
+
+.prose p {
+    color: var(--grey-700);
+    max-width: 720px;
+}
+
+.prose p + p {
+    margin-top: 16px;
+}
+
+.prose h3 {
+    margin: 32px 0 8px;
+}
+
+.prose h3:first-child {
+    margin-top: 0;
+}
+
+/* ---------- 5. Bio / intro block ---------- */
+.bio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    width: 100%;
-    margin-top: 14px;
+    grid-template-columns: 160px 1fr;
+    gap: 48px;
+    align-items: start;
 }
 
-.resume-img-placeholder {
-    background-color: #eef5f9;
-    border: 2px dashed #6c828d;
-    border-radius: 8px;
-    aspect-ratio: 16 / 9;
+.avatar {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: center 35%;
+    background-color: var(--grey-100);
+    border: 1px solid var(--grey-200);
+}
+
+.bio-content h1 {
+    margin-bottom: 20px;
+}
+
+.bio-content .prose {
+    margin-top: 40px;
+}
+
+/* ---------- 6. Project grid (home page) ---------- */
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background-color: var(--grey-200);
+    border: 1px solid var(--grey-200);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.25s ease;
+}
+
+.card:hover {
+    background-color: var(--grey-100);
+}
+
+.card-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: var(--grey-100);
+    border-bottom: 1px solid var(--grey-200);
+}
+
+.card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+}
+
+.card:hover .card-media img {
+    filter: grayscale(0%);
+}
+
+.card-media.blank {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6c828d;
-    font-size: 13px;
+    font-size: 96px;
     font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--grey-300);
 }
 
-/* ==========================================================================
-   7. INTERACTIVE FULLSCREEN OVERLAY (LIGHTBOX)
-   ========================================================================== */
+.card-body {
+    padding: 24px;
+}
+
+.card-body .eyebrow {
+    margin-bottom: 8px;
+}
+
+.card-body h3 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.card-body h3 .arrow {
+    transition: transform 0.25s ease;
+}
+
+.card:hover .arrow {
+    transform: translateX(4px);
+}
+
+.card-body p {
+    font-size: 14px;
+    color: var(--grey-600);
+}
+
+.card.muted h3,
+.card.muted p {
+    color: var(--grey-400);
+}
+
+/* ---------- 7. Project pages ---------- */
+.project-header .lead {
+    margin-top: 20px;
+}
+
+.meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid var(--grey-300);
+    color: var(--grey-700);
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 560px;
+    object-fit: cover;
+    background-color: var(--grey-100);
+    border: 1px solid var(--grey-200);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.gallery.three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+figure img {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    object-fit: cover;
+    background-color: var(--grey-100);
+    border: 1px solid var(--grey-200);
+}
+
+figure.contain img {
+    object-fit: contain;
+}
+
+figure.wide img {
+    aspect-ratio: auto;
+}
+
+figcaption {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--grey-500);
+    margin-top: 10px;
+}
+
+.zoomable {
+    cursor: zoom-in;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* Code listings */
+.code-block {
+    border: 1px solid var(--grey-800);
+    background-color: var(--grey-900);
+}
+
+.code-block + .code-block {
+    margin-top: 32px;
+}
+
+.code-title {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--grey-400);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--grey-800);
+}
+
+.code-block pre {
+    max-height: 480px;
+    overflow: auto;
+    padding: 16px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--grey-200);
+    tab-size: 4;
+}
+
+.code-block pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.code-block pre::-webkit-scrollbar-thumb {
+    background: var(--grey-700);
+}
+
+.project-iframe {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--grey-200);
+    display: block;
+}
+
+.empty-state {
+    padding: 96px 24px;
+    text-align: center;
+    border: 1px dashed var(--grey-300);
+    color: var(--grey-500);
+}
+
+.back-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--grey-600);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--black);
+}
+
+/* ---------- 8. Resume ---------- */
+.resume-list {
+    display: grid;
+    gap: 56px;
+}
+
+.resume-item + .resume-item {
+    margin-top: 28px;
+}
+
+.resume-item .meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--grey-500);
+    margin: 4px 0 8px;
+}
+
+.resume-item p {
+    color: var(--grey-700);
+    max-width: 720px;
+}
+
+/* ---------- 9. Contact ---------- */
+.contact-list {
+    list-style: none;
+    border-top: 1px solid var(--grey-200);
+    max-width: 640px;
+}
+
+.contact-list li {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--grey-200);
+}
+
+.contact-list .label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-500);
+    padding-top: 3px;
+}
+
+.contact-list a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--grey-400);
+    transition: border-color 0.2s ease;
+}
+
+.contact-list a:hover {
+    border-color: var(--black);
+}
+
+/* ---------- 10. Lightbox ---------- */
 .lightbox-overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(43, 58, 66, 0.95);
-    z-index: 100000;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(10, 10, 10, 0.94);
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(8px);
+    cursor: zoom-out;
+}
+
+.lightbox-overlay.open {
+    display: flex;
 }
 
 .lightbox-content {
-    max-width: 85%;
-    max-height: 85%;
+    max-width: 90%;
+    max-height: 88%;
     object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    animation: zoomEffect 0.25s cubic-bezier(0.15, 1, 0.3, 1);
+    background-color: var(--white);
+    animation: fadeIn 0.2s ease;
 }
 
 .lightbox-close {
     position: absolute;
-    top: 30px;
-    right: 40px;
-    color: #ffffff;
-    font-size: 44px;
+    top: 20px;
+    right: 28px;
+    color: var(--white);
+    font-size: 36px;
     font-weight: 300;
+    line-height: 1;
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
-@keyframes zoomEffect {
+@keyframes fadeIn {
     from {
-        transform: scale(0.92);
         opacity: 0;
     }
 
     to {
-        transform: scale(1);
         opacity: 1;
     }
 }
 
-/* ==========================================================================
-   8. CONTACT HOVER TILES
-   ========================================================================== */
-.contact {
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.contact p {
-    font-size: 14px;
-    color: #4f646f;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px 16px;
-    border-radius: 8px;
-    display: inline-block;
-    width: fit-content;
-}
-
-.contact-link {
-    text-decoration: none;
-    color: #2b3a42;
-    background-color: #f6efa6;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-weight: 700;
-    margin-left: 8px;
-}
-
-/* ==========================================================================
-   9. GLOBAL SYSTEM FOOTERS
-   ========================================================================== */
+/* ---------- 11. Footer ---------- */
 footer {
+    border-top: 1px solid var(--grey-200);
+}
+
+.footer-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;
-    margin: 60px auto 0 auto;
-    padding: 40px 24px;
-    height: auto;
-}
-
-footer p {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 28px var(--gutter);
     font-size: 13px;
-    color: #7d939e;
+    color: var(--grey-500);
 }
 
-.footer-2 {
-    max-width: 50%;
-    text-align: right;
-    line-height: 1.5;
+/* ---------- 12. Responsive ---------- */
+@media (max-width: 860px) {
+    .split,
+    .gallery.three {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* ==========================================================================
-   10. PHONE DEVICE RESPONSIVE LAYOUT
-   ========================================================================== */
-@media (max-width: 768px) {
-    main {
-        padding-top: 140px;
-        gap: 30px;
-    }
-
-    .bio,
-    .project,
-    .resume-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 24px;
-        gap: 20px;
-    }
-
-    .bio .placeholder {
-        margin: 0 auto;
-    }
-
-    .bio-content h1,
-    .bio-content h4,
-    .resume-content h1 {
-        font-size: 26px;
-    }
-
-    .flex-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
+@media (max-width: 680px) {
+    :root {
+        --gutter: 16px;
     }
 
     header {
@@ -438,31 +595,44 @@ footer p {
 
     .header-container {
         flex-direction: column;
-        padding: 12px 24px;
-        gap: 8px;
+        gap: 10px;
+        padding-top: 14px;
+        padding-bottom: 14px;
     }
 
-    footer {
+    .links {
+        gap: 20px;
+    }
+
+    main {
+        padding-top: 48px;
+        padding-bottom: 64px;
+        gap: 56px;
+    }
+
+    .bio {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .project-grid,
+    .gallery,
+    .gallery.three {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-list li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .footer-container {
         flex-direction: column;
-        gap: 14px;
-        text-align: center;
-        padding: 20px 24px;
+        gap: 4px;
     }
-
-    .footer-2 {
-        max-width: 100%;
-        text-align: center;
-    }
-}
-
-/* ==========================================================================
-   11. DATA ANALYSIS IFRAME STYLING
-   ========================================================================== */
-.project-iframe {
-    width: 100%;
-    height: 600px;
-    border: 1px solid rgba(43, 58, 66, 0.15);
-    border-radius: 8px;
-    margin-top: 20px;
-    display: block;
 }

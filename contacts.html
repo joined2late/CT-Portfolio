@@ -7,7 +7,7 @@
     <title>Contact | Andrew Zhou</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,58 +15,39 @@
     <div class="page-layout">
         <header>
             <div class="header-container">
-                <div>Andrew</div>
+                <a class="brand" href="index.html">Andrew Zhou</a>
                 <nav class="links">
                     <a href="index.html">Home</a>
                     <a href="about.html">About</a>
                     <a href="resume.html">Resume</a>
-                    <a href="contacts.html">Contact</a>
+                    <a href="contacts.html" class="active">Contact</a>
                 </nav>
             </div>
         </header>
+
         <main>
-            <div class="bio">
-                <img class="placeholder" src="pfplaceholder.png" alt="placeholder">
-                <div class="bio-content">
-                    <h1>Contact</h1>
-                    <p>I am able to be contacted through the following platforms:</p>
-                    <div class="contact">
-                        <p>Discord: <a class="contact-link" href="https://discord.com/users/user_id"
-                                target="_blank">joined2late</a></p>
-                        <p>Email: andrew.zhou@example.com</p>
-                        <p>Phone: On Request</p>
-                    </div>
-                </div>
-            </div>
+            <section>
+                <p class="eyebrow">Contact</p>
+                <h1>Get in touch</h1>
+                <p class="lead" style="margin-top: 20px;">I can be contacted through the following platforms.</p>
+            </section>
+
+            <ul class="contact-list">
+                <li><span class="label">Discord</span><a href="https://discord.com/users/user_id"
+                        target="_blank" rel="noopener">joined2late</a></li>
+                <li><span class="label">Email</span><a href="mailto:andrew.zhou@example.com">andrew.zhou@example.com</a></li>
+                <li><span class="label">Phone</span><span>On request</span></li>
+            </ul>
         </main>
-        <footer class="header-footer">
-            <p>Copyright 2026 Andrew Zhou. All rights reserved.</p>
+
+        <footer>
+            <div class="footer-container">
+                <p>© 2026 Andrew Zhou</p>
+                <p>Sydney, Australia</p>
+            </div>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
-
-<div id="image-lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-target-img" alt="Fullscreen View">
-</div>
-
-<script>
-    function openLightbox(element) {
-        var lightbox = document.getElementById("image-lightbox");
-        var lightboxImg = document.getElementById("lightbox-target-img");
-        lightbox.style.display = "flex";
-        lightboxImg.src = element.src;
-    }
-    function closeLightbox() {
-        document.getElementById("image-lightbox").style.display = "none";
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-        var images = document.querySelectorAll('.box-image, .placeholder');
-        images.forEach(function (img) {
-            img.style.cursor = 'pointer';
-            img.setAttribute('onclick', 'openLightbox(this)');
-        });
-    });
-</script>
 
 </html>
